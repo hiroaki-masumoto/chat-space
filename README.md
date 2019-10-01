@@ -27,23 +27,23 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key:true|
 |email|string|null: false|
 |password|string|null: false|
-|username|string|null: false|
+|name|string|null: false|
 
 ## Association
 - has_many :chats
-- has_many :groups
+- has_many :groups,through::group_users
+- has_many:group_users
 
 ## chatsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|chat_id|integer|null:false, fareign_key:true|
 |text|text||
 |image|text||
 |user_id|integer|null: false, foreign_key:true|
+|group_id|integer|null: false, foreign_key:true|
 
 ## Association
 - belongs_to :user
@@ -52,16 +52,18 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|group_id|integer|null: false, foreign_key:true|
-|groupname|string|null :false|
+|name|string|null :false|
 
 ## Association
-- belongs_to: user
+- has_many:users,through::users
+- has_many:users
+- has_many:chats
+
 
 ## group_usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|member_id|integer|null: false, foreign_key:true|
+|group_id|integer|null: false, foreign_key:true|
 |user_id|integer|null: false, foreign_key:true|
 
 ## Association 
