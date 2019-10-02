@@ -65,7 +65,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |group_id|references|null: false, foreign_key:true|
-|user_id|references|null: false, foreign_key:true|
+|user_id|referencess|null: false, foreign_key:true|
 
 ## Association 
 - belongs_to :user
