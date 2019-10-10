@@ -10,11 +10,9 @@
         %ul.left-header__members
           Member:
           %li.member
-            = @message.user
-          %li.member
-            = @message.user
-          %li.member
-            = @message.user
+            - @group.users.each do |i|
+              = i.name
+
       .right-header
         .right-header__botton
           Edit
