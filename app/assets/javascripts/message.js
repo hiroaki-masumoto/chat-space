@@ -1,7 +1,7 @@
 $(function(){
-  var message_contents = $$(".contents.js-lazy-load-images");
+  var image = message.image ? `<img src=${message.image} >` : "";
   function buildHTML(message){
-     var html =
+    var html =
       `<div class="message" data-message-id=${message.id}>
          <div class="upper-message">
            <div class="upper-message__user-name">
@@ -16,28 +16,11 @@ $(function(){
              ${message.content}
            </p>
          </div>
-         <img src=${message.image} >
+         <img src=${image} >
        </div>`
-     return html;
-     var html =
-      `<div class="message" data-message-id=${message.id}>
-         <div class="upper-message">
-           <div class="upper-message__user-name">
-             ${message.user_name}
-           </div>
-           <div class="upper-message__date">
-             ${message.date}
-           </div>
-         </div>
-         <div class="lower-message">
-           <p class="lower-message__content">
-             ${message.content}
-           </p>
-         </div>
-       </div>`
-     return html;
+    return html;
    };
- }
+});
 $('#new_message').on('submit', function(e){
  e.preventDefault();
  var formData = new FormData(this);
@@ -61,11 +44,3 @@ $('#new_message').on('submit', function(e){
    });
    return false;
  });
-});
-
-// $(function(){
-//   $('#new_message').on('submit', function(e){
-//     e.preventDefault();
-//     console.log("pppp");
-//   })
-// })
