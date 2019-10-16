@@ -1,6 +1,6 @@
-$(function(){ 
+$(function(){
+  var message_contents = $$(".contents.js-lazy-load-images");
   function buildHTML(message){
-   if ( message.image ) {
      var html =
       `<div class="message" data-message-id=${message.id}>
          <div class="upper-message">
@@ -19,7 +19,6 @@ $(function(){
          <img src=${message.image} >
        </div>`
      return html;
-   } else {
      var html =
       `<div class="message" data-message-id=${message.id}>
          <div class="upper-message">
@@ -39,7 +38,7 @@ $(function(){
      return html;
    };
  }
-$('.js-form').on('submit', function(e){
+$('#new_message').on('submit', function(e){
  e.preventDefault();
  var formData = new FormData(this);
  var url = $(this).attr('action')
@@ -63,3 +62,10 @@ $('.js-form').on('submit', function(e){
    return false;
  });
 });
+
+// $(function(){
+//   $('#new_message').on('submit', function(e){
+//     e.preventDefault();
+//     console.log("pppp");
+//   })
+// })
